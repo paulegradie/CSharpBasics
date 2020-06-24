@@ -1,0 +1,12 @@
+*.json
+*.exe
+*.dll
+*.pdb
+*.idea*
+*.targets
+*.cache
+*.props
+*.txt
+*xml
+*Debug*
+*.iml
