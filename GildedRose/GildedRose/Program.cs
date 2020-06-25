@@ -53,11 +53,21 @@ namespace GildedRose
             {
                 if (t.Name != "Aged Brie" && t.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (t.Quality > 0)
+                    if (t.Quality >= 0)
                     {
                         if (t.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            t.Quality = t.Quality - 1;
+                            if (t.Quality > 0)
+                            {
+                                if (t.Name != "Conjured Mana Cake")
+                                {
+                                    t.Quality -= 1;
+                                }
+                                else
+                                {
+                                    t.Quality = ( t.Quality > 2 ) ? (t.Quality - 2) : 0;
+                                }
+                            }
                         }
                     }
                 }
@@ -65,7 +75,7 @@ namespace GildedRose
                 {
                     if (t.Quality < 50)
                     {
-                        t.Quality = t.Quality + 1;
+                        t.Quality += 1;
 
                         if (t.Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
@@ -73,7 +83,7 @@ namespace GildedRose
                             {
                                 if (t.Quality < 50)
                                 {
-                                    t.Quality = t.Quality + 1;
+                                    t.Quality += 1;
                                 }
                             }
 
@@ -81,7 +91,7 @@ namespace GildedRose
                             {
                                 if (t.Quality < 50)
                                 {
-                                    t.Quality = t.Quality + 1;
+                                    t.Quality += 1;
                                 }
                             }
                         }
@@ -90,34 +100,36 @@ namespace GildedRose
 
                 if (t.Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    t.SellIn = t.SellIn - 1;
+                    if (t.SellIn > 0)
+                    {
+                        t.SellIn -= 1;
+                    }
                 }
 
-                if (t.SellIn < 0)
+                if (t.SellIn > 0) continue;
+                if (t.Name != "Aged Brie")
                 {
-                    if (t.Name != "Aged Brie")
+                    if (t.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (t.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (t.Quality <= 0) continue;
+                        if (t.Name == "Sulfuras, Hand of Ragnaros") continue;
+                        if (t.Quality > 0)
                         {
-                            if (t.Quality > 0)
-                            {
-                                if (t.Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    t.Quality = t.Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            t.Quality = t.Quality - t.Quality;
+                            t.Quality -= 1;
                         }
                     }
                     else
                     {
-                        if (t.Quality < 50)
-                        {
-                            t.Quality = t.Quality + 1;
-                        }
+                        t.Quality = 0;
+
+                    }
+                }
+                else
+                {
+                    if (t.Quality >= 50) continue;
+                    if (t.Quality >= 0)
+                    {
+                        t.Quality += 1;
                     }
                 }
             }
