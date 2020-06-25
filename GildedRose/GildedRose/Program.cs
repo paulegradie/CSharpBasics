@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace GildedRose
 {
-    class Program
+    public class Program
     {
-        IList<Item> Items;
+        public IList<Item> Items;
+
         static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
@@ -26,11 +28,21 @@ namespace GildedRose
                                                   },
                                               new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
                                           }
-
                           };
 
+            static void showItems(IEnumerable<Item> items)
+            {
+                foreach (var item in items)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+            }
+            
+            Console.WriteLine("BEFORE UPDATE");
+            showItems(app.Items);
             app.UpdateQuality();
-
+            Console.WriteLine("AFTER UPDATE");
+            showItems(app.Items);
             Console.ReadKey();
 
         }

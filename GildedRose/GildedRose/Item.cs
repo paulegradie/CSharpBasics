@@ -1,15 +1,16 @@
-﻿namespace GildedRose
+﻿using System;
+
+namespace GildedRose
 {
     public class Item
     {
         public string Name { get; set; } // Since we are using autoproperty, we don't need a backing field
         public int SellIn { get; set; }
         public int Quality { get; set; }
-        
+
         public override string ToString()
         {
-            return $"Name: {Name}/n/r/SellIn: {SellIn}/n/rQuality: {Quality}";
+            return $"Name: {Name}{Environment.NewLine}SellIn: {SellIn}{Environment.NewLine}Quality: {Quality}";
         }
-        
-        
     }
+}
