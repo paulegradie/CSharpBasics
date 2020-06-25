@@ -27,16 +27,12 @@ namespace GildedRose.Tests
             // Arrange
             var newItem = new Item {Name = name, SellIn = sellIn, Quality = quality};
             var items = new List<Item>() {newItem};
-            var program = new Program()
-            {
-                Items = items
-            };
-
+ 
             // Act
-            program.UpdateQuality();
+            Transaction.UpdateQuality(ref items);
             
             // Assert
-            var item = program.Items[0];
+            var item = items[0];
             item.Name.Should().Be(name);
             item.SellIn.Should().Be(expectedSellIn);
             item.Quality.Should().Be(expectedQuality);
