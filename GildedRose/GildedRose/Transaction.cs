@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GildedRose
 {
-    public class Transaction
+    public static class Transaction
     {
         private static void DecrementQualityBy(Item item, int value)
         {
@@ -47,7 +47,12 @@ namespace GildedRose
             item.Quality = item.SellIn == 0 ? 0 : item.Quality;
         }
 
-  
+        /// <summary>
+        /// Method to update item values
+        /// </summary>
+        /// <param name="items">
+        /// A reference parameter containing a List of Items. Ref since this method will update the object in place.
+        /// b/c pass through mutation  is gross - better to treat this method like a sea urchin (they eat, then throw up)</param>
         public static void UpdateQuality(ref List<Item> items)
         {
             foreach (var item in items)
@@ -55,7 +60,6 @@ namespace GildedRose
                 switch (item.Name)
                 {
                     case ("Sulfuras, Hand of Ragnaros"):
-                        // updateSulfuras();
                         break;
                     case ("Backstage passes to a TAFKAL80ETC concert"):
                         UpdateBackstagePass(item);

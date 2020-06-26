@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+ 
 
 namespace GildedRose.Tests
 {
@@ -32,7 +34,7 @@ namespace GildedRose.Tests
             Transaction.UpdateQuality(ref items);
             
             // Assert
-            var item = items[0];
+            var item = items.Last();
             item.Name.Should().Be(name);
             item.SellIn.Should().Be(expectedSellIn);
             item.Quality.Should().Be(expectedQuality);
