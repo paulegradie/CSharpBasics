@@ -1,6 +1,7 @@
 ﻿using System.Data.SQLite;
+using ItemTypes.Interface;
 
-namespace GildedRose.Data
+namespace ItemTypes.Types
 {
     public enum Columns
     {
@@ -10,7 +11,7 @@ namespace GildedRose.Data
         Type = 3
     }
 
-    public struct DataRow
+    public struct DataRow : IDataRow
     {
         public string Name { get; set; }
         public int Quality { get; set; }

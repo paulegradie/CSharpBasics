@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using GildedRose.Data;
-using GildedRose.ItemTypes;
+using ItemTypes.Interface;
+using ItemTypes.Types;
 using NUnit.Framework;
 
 

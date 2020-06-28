@@ -6,9 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Autofac" Version="5.2.0" />
-      <PackageReference Include="Nevermore" Version="12.8.0" />
       <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ItemRepository.SQLite\ItemRepository.SQLite.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using GildedRose.Data;
+﻿using ItemTypes.Interface;
 
-namespace GildedRose.ItemTypes
+namespace ItemTypes.Types
 {
     public class DeprecatingType : BaseItemType, ICreatable<DeprecatingType>, IUpdateableItem
     {
@@ -8,7 +8,7 @@ namespace GildedRose.ItemTypes
         {
         }
 
-        public static DeprecatingType CreateType(DataRow data)
+        public static DeprecatingType CreateType(IDataRow data)
         {
             return new DeprecatingType(data.Name, data.Quality, data.SellIn);
         }

@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using GildedRose.Data;
+using ItemTypes.Interface;
 
-namespace GildedRose.ItemTypes
+namespace ItemTypes.Types
 {
     public static class TypeFactory
     {

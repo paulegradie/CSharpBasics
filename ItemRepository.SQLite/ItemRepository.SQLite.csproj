@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ItemRepository.Interface\ItemRepository.Interface.csproj" />
+      <ProjectReference Include="..\ItemTypes.Interface\ItemTypes.Interface.csproj" />
+      <ProjectReference Include="..\ItemTypes.Types\ItemTypes.Types.csproj" />
+    </ItemGroup>
+
+</Project>

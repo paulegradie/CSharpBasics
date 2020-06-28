@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using GildedRose.Data;
-using GildedRose.ItemTypes;
+using ItemRepository.Interface;
+using ItemRepository.SQLite;
 
 namespace GildedRose
 {
@@ -12,13 +11,14 @@ namespace GildedRose
             Console.WriteLine("OMGHAI! & Welcome to the Gilded Rose!" + Environment.NewLine);
             Console.WriteLine("This was today's inventory change!" + Environment.NewLine);
 
-            var database = DbConnector.CreateDatabaseConnection("Items.sqlite");
-            var items = database.RetrieveData();
+            // var database = DbConnector.CreateDatabaseConnection("Items.sqlite");
+            // var items = database.RetrieveData();
 
+            IItemRepository repository = new SQLiteRepository();
+            var items = repository.GetItems();
+            
             Transaction.UpdateQuality(ref items);
             //TODO database.Update() --> keep separate IO & pure logic
         }
-
-        
     }
 }

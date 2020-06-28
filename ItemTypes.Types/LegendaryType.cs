@@ -1,6 +1,6 @@
-﻿using GildedRose.Data;
+﻿using ItemTypes.Interface;
 
-namespace GildedRose.ItemTypes
+namespace ItemTypes.Types
 {
     public class LegendaryType : BaseItemType, ICreatable<LegendaryType>, IUpdateableItem
     {

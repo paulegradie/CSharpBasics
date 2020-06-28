@@ -1,4 +1,4 @@
-﻿namespace GildedRose.ItemTypes
+﻿namespace ItemTypes.Types
 {
     /// <summary>
     /// Not allow to modify this class

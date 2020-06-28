@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GildedRose.ItemTypes
+namespace ItemTypes.Types
 {
     public class BaseItemType : Item
     {

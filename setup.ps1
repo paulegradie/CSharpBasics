@@ -7,23 +7,24 @@ write-host "Preparing sql..."
 Import-Module PSSQLite
 Import-Module dbatools
 
-$DataSource = "./GildedRose/Items.sqlite"
+$DataSource = "./ItemRepository.SQLite/Items.sqlite"
 $CreateTableQuery = "
 CREATE TABLE Items (
    name VARCHAR(255),
    quality integer,
    sellIn integer,
-   type VARCHAR(255)
+   type VARCHAR(255),
+   id VARCHAR(50)
 );"
 
 $InsertQuery = "INSERT INTO Items
-(name, quality, sellIn, type) VALUES
-('+5 Dexterity Vest', 10, 20, 'Depreciate'),
-('Aged Brie', 2, 0, 'Appreciate'),
-('Elixir of the Mongoose', 5, 7, 'Depreciate'),
-('Sulfuras, Hand of Ragnaros', 0, 80, 'Legendary'),
-('Backstage passes to a TAFKAL80ETC concert', 15, 20, 'Concert'),
-('Conjured Mana Cake', 3, 6, 'Conjure');"
+(name, quality, sellIn, type, id) VALUES
+('+5 Dexterity Vest', 10, 20, 'Depreciate', 0),
+('Aged Brie', 2, 0, 'Appreciate', 1),
+('Elixir of the Mongoose', 5, 7, 'Depreciate', 2),
+('Sulfuras, Hand of Ragnaros', 0, 80, 'Legendary', 3),
+('Backstage passes to a TAFKAL80ETC concert', 15, 20, 'Concert', 4),
+('Conjured Mana Cake', 3, 6, 'Conjure', 5);"
 
 
 

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GildedRose.ItemTypes;
+using ItemTypes.Interface;
+using ItemTypes.Types;
 
 namespace GildedRose
 {
@@ -27,7 +29,7 @@ namespace GildedRose
         private static void PrintChange(DataChange previousData, DataChange newData)
         {
             Console.WriteLine(Environment.NewLine + $"Item Name: {previousData.Name}");
-            for (int i = 0; i < previousData.Properties.Count(); i++)
+            for (var i = 0; i < previousData.Properties.Count(); i++)
             {
                 var previous = previousData.Properties[i];
                 var current = newData.Properties[i];
@@ -45,7 +47,7 @@ namespace GildedRose
                 Name = name;
             }
 
-            public string Name { get; set; }
+            public string Name { get; private set; }
             public List<Dictionary<string, object>> Properties { get; private set; }
 
             public static DataChange Record(IUpdateableItem item)

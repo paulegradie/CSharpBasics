@@ -1,6 +1,6 @@
-﻿using GildedRose.Data;
+﻿using ItemTypes.Interface;
 
-namespace GildedRose.ItemTypes
+namespace ItemTypes.Types
 {
     public class AppreciateType : BaseItemType, ICreatable<AppreciateType>, IUpdateableItem
     {
@@ -8,7 +8,7 @@ namespace GildedRose.ItemTypes
         {
         }
 
-        public static AppreciateType CreateType(DataRow data)
+        public static AppreciateType CreateType(IDataRow data)
         {
             return new AppreciateType(data.Name, data.Quality, data.SellIn);
         }
