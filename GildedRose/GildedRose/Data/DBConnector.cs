@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using GildedRose.ItemTypes;
 
-namespace GildedRose
+namespace GildedRose.Data
 {
     /// <summary>
     /// A thing to connect to the sqlite file for development
@@ -28,7 +29,8 @@ namespace GildedRose
         private string GetSqliteConnectionString(string dbFileName)
         {
             var dirParts = CurrentWorkingDirectory.Split(Sep, StringSplitOptions.RemoveEmptyEntries);
-            var connectionString = SqlitePrefix + string.Join(Sep, dirParts.Take(dirParts.Length - 3)) + Sep + dbFileName;
+            var connectionString =
+                SqlitePrefix + string.Join(Sep, dirParts.Take(dirParts.Length - 3)) + Sep + dbFileName;
             return connectionString;
         }
 
@@ -37,23 +39,23 @@ namespace GildedRose
             return new DbConnector(dbFileName);
         }
 
-        public List<Item> RetrieveData()
+        public List<IUpdateableItem> RetrieveData()
         {
-            
             Connection.Open();
             using var cmd = new SQLiteCommand(DataQuery, Connection);
             using var reader = cmd.ExecuteReader();
-            if (!reader.Read()) throw new Exception();
+            if (!reader.Read()) throw new IOException("No data available");
 
-            var items = new List<Item>();
+            var items = new List<IUpdateableItem>();
             while (reader.Read())
             {
-                items.Add(new Item {Name = reader.GetString(0), SellIn = reader.GetInt32(1), Quality = reader.GetInt32(2)});
+                var dataRow = DataSchema.ExtractProperties(reader);
+                var item = TypeFactory.BindType(dataRow);
+                items.Add(item);
             }
+
             Connection.Close();
             return items;
-
         }
     }
-
 }

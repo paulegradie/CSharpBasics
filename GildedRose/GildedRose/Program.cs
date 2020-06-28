@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using GildedRose.Data;
+using GildedRose.ItemTypes;
 
 namespace GildedRose
 {
@@ -7,20 +9,16 @@ namespace GildedRose
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("OMGHAI!");
+            Console.WriteLine("OMGHAI! & Welcome to the Gilded Rose!" + Environment.NewLine);
+            Console.WriteLine("This was today's inventory change!" + Environment.NewLine);
 
-            var data = DbConnector.CreateDatabaseConnection("Items.sqlite");
-            var items = data.RetrieveData();
-            Transaction.UpdateQuality(items: ref items);
-            showItems(items);
+            var database = DbConnector.CreateDatabaseConnection("Items.sqlite");
+            var items = database.RetrieveData();
+
+            Transaction.UpdateQuality(ref items);
+            //TODO database.Update() --> keep separate IO & pure logic
         }
+
         
-        static void showItems(IEnumerable<Item> items)
-        {
-            foreach (var item in items)
-            {
-                Console.WriteLine(item.ToString());
-            }
-        }
     }
 }
