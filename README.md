@@ -33,7 +33,6 @@ The approach is thus:
 
 
 ### TODO
- - Use the repository pattern to handled database transaction
  - Create a new project to provide a Blazor React Portal to allow new items to be provided (Complete with login)
  - (And/Or) Create an API for users to use an API key to send updates to a running server.
 
