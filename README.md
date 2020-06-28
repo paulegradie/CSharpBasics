@@ -21,15 +21,15 @@ The whole point of this challenge is to teach you how to write meaningful tests 
 
 The approach is thus:
 
-    1. Write a comprehensive set of unit tests to capture the behavior the given code (it is legacy, but it is assumed to be working correctly). You can use any testing framework, and any approach. I've decided to use basic NUnit, however you can use approval testing or anything else.
+1. Write a comprehensive set of unit tests to capture the behavior the given code (it is legacy, but it is assumed to be working correctly). You can use any testing framework, and any approach. I've decided to use basic NUnit, however you can use approval testing or anything else.
 
-    2. Do NOT, at any point, modify the Item class. This is forbodden. *However*, you may inherit from that class or use that class in your refactor.
+2. Do NOT, at any point, modify the Item class. This is forbodden. *However*, you may inherit from that class or use that class in your refactor.
 
-    3. Make incremental changes to the code to clean it up and make it more readable. You can take any approach you'd like. (I've decided to migrate our data to an sqlite database and update the database accordingly.)
+3. Make incremental changes to the code to clean it up and make it more readable. You can take any approach you'd like. (I've decided to migrate our data to an sqlite database and update the database accordingly.)
 
-    4. Run the tests often during the refactor. In other words, make a small change that keeps the code working, and then run the tests to ensure you haven't missed anything.
+4. Run the tests often during the refactor. In other words, make a small change that keeps the code working, and then run the tests to ensure you haven't missed anything.
 
-    5. Keep going until you've stretched the refactor to its extendible limit and try to use interesting patterns that reflect best practices in C# for organization, maintainability, and design.
+5. Keep going until you've stretched the refactor to its extendible limit and try to use interesting patterns that reflect best practices in C# for organization, maintainability, and design.
 
 
 ### TODO
