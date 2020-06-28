@@ -6,6 +6,15 @@ This project is a quaint refactor challenge that seems to have no limit to how f
 
 The idea is simple - you maintain software for a magic shop called 'The Gilded Rose' and your job is to refactor the code - without modifying the Item class! - into something that works well, is potentially extendable, is definitely maintainable, and is hopefully easier to comprehend than the original.
 
+
+## Get Started
+Step 1. Run `setup.ps1`. This is a powershell script that will clean/reset the sqlite database that holds the data.
+Step 2. Run the tests in the `GildedRose.Tests` project.
+Step 3. Run the application under `GildedRose/program.cs`
+
+The test cases should all pass, and the program should output a nicely formatted message in stdout.
+
+
 ### What the challenge is
  - A challenge intended to help you get better at refactoring in C#
  - A starting point you can use to explore various design patterns
@@ -35,7 +44,7 @@ The approach is thus:
 ### TODO
  - Create a new project to provide a Blazor React Portal to allow new items to be provided (Complete with login)
  - (And/Or) Create an API for users to use an API key to send updates to a running server.
-
+ - Implement update methods in the ItemRepository
 
 # Original Starting Code
 This is the original starting code taken from [The original Gilded Rose Kata Repo](https://github.com/NotMyself/GildedRose/blob/master/src/GildedRose.Console/Program.cs)
