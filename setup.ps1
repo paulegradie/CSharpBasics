@@ -1,13 +1,15 @@
 
 write-host "Installing dependencies..."
+write-host "Installing PSSQLite..."
 Install-Module -Name PSSQLite -RequiredVersion 1.0.3
+write-host "Installing dbatools..."
 Install-Module -Name dbatools
 
 write-host "Preparing sql..."
 Import-Module PSSQLite
 Import-Module dbatools
 
-$DataSource = "./ItemRepository.SQLite/Items.sqlite"
+$DataSource = "./AppData/Items.sqlite"
 $CreateTableQuery = "
 CREATE TABLE Items (
    name VARCHAR(255),
@@ -29,11 +31,11 @@ $InsertQuery = "INSERT INTO Items
 
 
 if (Test-Path $DataSource) {
-    write-host "Removing old table..."
+    write-host "Removing old table from $DataSource..."
     Remove-Item $DataSource
 }
 
-write-host "Creating new table {Items}..."
+write-host "Creating new table {Items} @ $DataSource..."
 Invoke-SqliteQuery -Query $CreateTableQuery -DataSource $DataSource
 Invoke-SqliteQuery -Query $InsertQuery -DataSource $DataSource
 write-host "Done!"

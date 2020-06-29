@@ -21,7 +21,7 @@ namespace TheGildedRose.Repositories.SQLite
         {
             return new SqLiteDbConnector(DataSource);
         }
-        
+
         private SqLiteDbConnector(string dbFileName)
         {
             var connectionString = GetConnectionString(dbFileName);
@@ -31,14 +31,14 @@ namespace TheGildedRose.Repositories.SQLite
         private string GetConnectionString(string dbFileName)
         {
             var dirParts = CurrentWorkingDirectory.Split(Sep, StringSplitOptions.RemoveEmptyEntries);
-            var connectionString = // not sure how to configure this yet
+            var connectionString = // not sure how else to configure this yet
                 SqLitePrefix + string.Join(Sep, dirParts.Take(dirParts.Length - 3)) + Sep + dbFileName;
             return connectionString;
         }
 
         public IEnumerable<IUpdateableItem> RetrieveData()
         {
-            var dataQuery = $"SELECT * FROM Items";
+            var dataQuery = "SELECT * FROM Items";
 
             Connection.Open();
             using var cmd = new SqliteCommand(dataQuery, Connection);

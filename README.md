@@ -26,7 +26,7 @@ The test cases should all pass, and the program should output a nicely formatted
 ### What the challenge is NOT
  - A bulk rewrite project
 
-The whole point of this challenge is to teach you how to write meaningful tests that you can run frequently as you *incrementally* refactor the code. You can see my incremental approach on this project by reviewing my commit history in repo (which unfortunately is blended with other basics projects -- but fortunately was the first thing I did. See below for tips on how to review the commit range.) The last thing you want to do when refactoring is to tear down the world and try to rebuild it, because unless you are very skilled and very knowledgable about the code you are working in/with, you are prone to writing yourself into a hole that is very difficult to code your way out of without resorting to `git reset --hard orign/blah`.
+The whole point of this challenge is to teach you how to write meaningful tests that you can run frequently as you *incrementally* refactor the code. You can see my incremental approach on this project by reviewing my commit history in repo (which unfortunately is blended with other basics projects -- but fortunately was the first thing I did. See below for tips on how to review the commit range.) The last thing you want to do when refactoring is to tear down the world and try to rebuild it, because unless you are very skilled and very knowledgable about the code you are working in/with, you are prone to writing yourself into a hole that is very difficult to code your way out of without resorting to `git reset --hard origin/branch`.
 
 The approach is thus:
 
@@ -203,7 +203,4 @@ namespace GildedRose.Console
 
 ## How to review the log of this project
 
-The current commit range (from latest to oldest) you can use:
-
-                        (newest commit)                                     (oldest commit)
-    git log --oneline 1b57660fc2318f01732fb30d21d8e996fe1940c7 ^b1f54f7c777c2999ac6889f855916759a311a164
+    git log --oneline
